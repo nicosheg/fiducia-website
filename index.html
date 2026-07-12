@@ -644,8 +644,8 @@
                 targetY: 0,
                 currentX: 0,
                 currentY: 0,
-                speed: 0.02 + Math.random() * 0.03,  // lerp speed
-                changeInterval: 2000 + Math.random() * 3000, // ms between new targets
+                speed: 0.04 + Math.random() * 0.05,  // lerp speed
+                changeInterval: 3000 + Math.random() * 4000, // ms between new targets
                 lastChange: 0,
             }));
 
@@ -690,12 +690,12 @@
                     nodes[i].style.transform = `translate(${state.currentX}px, ${state.currentY}px)`;
                 }
                 // Every few seconds, make one node randomly move toward another to create a playful interaction
-                if (Math.random() < 0.003) { // ~ once per ~30 frames? rare
+                if (Math.random() < 0.005) { // ~ once per ~30 frames? rare
                     const idx1 = Math.floor(Math.random() * nodes.length);
                     let idx2 = Math.floor(Math.random() * nodes.length);
                     if (idx2 === idx1) idx2 = (idx1 + 1) % nodes.length;
-                    const targetX = nodeStates[idx2].currentX + (Math.random() - 0.5) * 4;
-                    const targetY = nodeStates[idx2].currentY + (Math.random() - 0.5) * 4;
+                    const targetX = nodeStates[idx2].currentX + (Math.random() - 0.7) * 6;
+                    const targetY = nodeStates[idx2].currentY + (Math.random() - 0.7) * 6;
                     nodeStates[idx1].targetX = targetX;
                     nodeStates[idx1].targetY = targetY;
                     nodeStates[idx1].lastChange = time;
